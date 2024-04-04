@@ -37,9 +37,12 @@ enum class MovieGenre {
 
 std::map<MovieGenre, std::string> genreNamesInPortuguese = {
         {MovieGenre::ACTION, "Ação"},
+        {MovieGenre::ANIMATION, "Animação"},
+        {MovieGenre::CHILDREN, "Infantis"},
         {MovieGenre::ADVENTURE, "Aventura"},
         {MovieGenre::COMEDY, "Comédia"},
         {MovieGenre::CRIME, "Crime"},
+        {MovieGenre::MUSICAL, " Musicais"},
         {MovieGenre::DRAMA, "Drama"},
         {MovieGenre::FANTASY, "Fantasia"},
         {MovieGenre::HISTORICAL, "Histórico"},
@@ -52,7 +55,8 @@ std::map<MovieGenre, std::string> genreNamesInPortuguese = {
         {MovieGenre::SCIENCE_FICTION, "Ficção Científica"},
         {MovieGenre::THRILLER, "Suspense"},
         {MovieGenre::URBAN, "Urbano"},
-        {MovieGenre::WESTERN, "Faroeste"}
+        {MovieGenre::WESTERN, "Faroeste"},
+        {MovieGenre::WAR, "Guerra"}
 };
 
 std::string getGenreName(MovieGenre genre) {

@@ -17,10 +17,12 @@ private:
 public:
     StaticList() : size(0) {}
 
+    //Inserindo dados no início
     void insertAtBeginning(const T& data) {
         insertAtPosition(data, 0);
     }
 
+    //Inserindo dados em uma determinada posição
     void insertAtPosition(const T& data, int position) {
         if (size < Capacity && position >= 0 && position <= size) {
             shiftRight(position);
@@ -32,6 +34,7 @@ public:
         std::cerr << "Erro: Posição inválida ou lista cheia." << std::endl;
     }
 
+    //Inserindo dados no fim
     void insertAtEnd(const T& data) {
         if (size < Capacity) {
             array[size] = data;
@@ -42,10 +45,12 @@ public:
         std::cerr << "Erro: Lista cheia." << std::endl;
     }
 
+    //Removendo dados do início
     void removeFromBeginning() {
         removeFromPosition(0);
     }
 
+    //Removendo dados de uma determinada posição
     void removeFromPosition(int position) {
         if (position >= 0 && position < size) {
             shiftLeft(position);
@@ -56,6 +61,7 @@ public:
         std::cerr << "Erro: Posição inválida." << std::endl;
     }
 
+    //Removendo dados do fim da lista
     void removeFromEnd() {
         if (size > 0) {
             --size;
@@ -65,12 +71,14 @@ public:
         std::cerr << "Erro: Lista vazia." << std::endl;
     }
 
+    //Movimentando dados para direita
     void shiftRight(int position) {
         for (int i = size; i > position; --i) {
             array[i] = array[i - 1];
         }
     }
 
+    //Movimentando dados para esquerda
     void shiftLeft(int position) {
         for (int i = position; i < (size - 1); ++i) {
             array[i] = array[i + 1];
