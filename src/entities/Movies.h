@@ -25,13 +25,10 @@ struct WatchedMovie {
 };
 
 std::ostream& operator<<(std::ostream& os, const Movie& movie) {
-    os << "Title: " << movie.title << std::endl;
-    os << "Cast: ";
-    for (const auto& actor : movie.cast) {
-        os << actor << ", ";
-    }
-    os << std::endl;
-    os << "Year: " << movie.year << std::endl;
+    os << "Titulo: " << movie.title << std::endl;
+    os << "Elenco: " << movie.cast << std::endl;
+    os << "Ano: " << movie.year << std::endl;
+    os << "--------------------------------" << std::endl;
     return os;
 }
 

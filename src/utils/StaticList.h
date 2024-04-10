@@ -159,7 +159,9 @@ public:
      */
     void print() const {
         for (int i = 0; i < size; ++i) {
-            std::cout << array[i] << ", ";
+            bool isEnd = i == size - 1;
+
+            std::cout << array[i] << (isEnd ? "" : ", ");
         }
         std::cout << std::endl;
     }

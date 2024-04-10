@@ -13,7 +13,14 @@
 
 using namespace std;
 
+/*
+ * Importador de filmes
+ */
 namespace MovieImporter {
+    /**
+     * Importa os filmes de um arquivo CSV
+     * @param fileName Nome do arquivo CSV
+     */
     void import(const string& fileName) {
         std::cout << "[MovieImporter] Importando filmes..." << std::endl;
 
@@ -24,18 +31,18 @@ namespace MovieImporter {
         string currentLine;
         int line = 0;
         while(Movies::movies.getSize() < 500) {
-            line++;
-            if (line <= 2) continue;
-
             getline(file, currentLine);
 
             if(currentLine.empty()) {
                 break;
             }
 
+            line++;
+            if (line < 1) continue;
+
             vector<string> movieData = StringUtils::splitString(currentLine, ',');
 
-            if (movieData.size() < 2 || movieData[1] == "title") {
+            if (movieData.size() < 2) {
                 continue;
             }
 
