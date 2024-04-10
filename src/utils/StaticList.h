@@ -150,7 +150,7 @@ public:
     /*
      * Método para retornar o tamanho da lista.
      */
-    int getSize() {
+    int getSize() const {
         return size;
     }
 

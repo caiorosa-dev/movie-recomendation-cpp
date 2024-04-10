@@ -14,8 +14,8 @@
  */
 struct Movie {
     std::string title;
-    StaticList<MovieGenre, 10> genres;
     std::string cast;
+    StaticList<MovieGenre, 10> genres;
     int year = 0;
 };
 
@@ -49,20 +49,6 @@ namespace Movies {
         movie.year = year;
 
         return movie;
-    }
-
-    /*
-     * Add a movie to the list
-     */
-    void addMovie(Movie movie) {
-        movies.insertAtEnd(movie);
-    }
-
-    /*
-     * Get a movie by index
-     */
-    Movie getMovie(int index) {
-        return movies.get(index);
     }
 
     /*
