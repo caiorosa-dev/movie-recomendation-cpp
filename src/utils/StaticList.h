@@ -141,6 +141,13 @@ public:
     }
 
     /*
+     * Método para retornar um elemento aleatório da lista.
+     */
+    T getRandom() {
+        return array[rand() % size];
+    }
+
+    /*
      * Método para retornar o tamanho da lista.
      */
     int getSize() const {
