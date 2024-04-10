@@ -10,19 +10,32 @@
 #include "../utils/StaticList.h"
 
 /*
+ * Movie struct
+ */
+struct Movie {
+    std::string title;
+    StaticList<MovieGenre, 10> genres;
+    std::string cast;
+    int year = 0;
+};
+
+struct WatchedMovie {
+    Movie movie;
+    int rating = 0;
+};
+
+std::ostream& operator<<(std::ostream& os, const Movie& movie) {
+    os << "Titulo: " << movie.title << std::endl;
+    os << "Elenco: " << movie.cast << std::endl;
+    os << "Ano: " << movie.year << std::endl;
+    os << "--------------------------------" << std::endl;
+    return os;
+}
+
+/*
  * Movie entity
  */
 namespace Movies {
-    /*
-     * Movie struct
-     */
-    struct Movie {
-        std::string title;
-        StaticList<MovieGenre, 10> genres;
-        std::string cast;
-        int year;
-    };
-
     StaticList<Movie, 500> movies;
 
     /*
