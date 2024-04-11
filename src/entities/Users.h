@@ -1,35 +1,35 @@
 //
-// Created by Jordan on 09/04/2024.
+// Created by Caio on 10/04/2024.
 //
 
 #ifndef VALIFLIX_USERS_H
 #define VALIFLIX_USERS_H
 
 #include <string>
-#include "../utils/StaticList.h"
 #include "../enums/MovieGenre.h"
-#include "../entities/Movies.h"
+#include "../utils/StaticList.h"
+#include "Movies.h"
 
+struct User {
+    std::string name;
+    int age;
+    StaticList<Movie, 50> watchList;
+    StaticList<MovieGenre, 3> favoriteGenres;
+    StaticList<WatchedMovie, 20> watchedMovies;
+};
 
-using namespace std;
-
-namespace Users{
-
-    struct User{
-        string name;
-        int age;
-        StaticList<MovieGenre, 3> genres;
-        int movieRewiew;
-    };
-
-    void watchedMovie(Movies::Movie movie, int rewiew){
-        if(rewiew < 0 || rewiew > 5){
-            cout << "Avaliacao invalida";
-            return;
-        }
-    }
-
+std::ostream& operator<<(std::ostream& os, const User& user) {
+    os << "Nome: " << user.name << std::endl;
+    os << "Idade: " << user.age << std::endl;
+    os << "Quantidade de filmes para assistir: " << user.watchList.getSize() << std::endl;
+    os << "Quantidade de generos favoritos: " << user.favoriteGenres.getSize() << std::endl;
+    os << "Quantidade de filmes assistidos: " << user.watchedMovies.getSize() << std::endl;
+    os << "--------------------------------" << std::endl;
+    return os;
 }
 
+namespace Users {
+    StaticList<User, 100> users;
+}
 
 #endif //VALIFLIX_USERS_H

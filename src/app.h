@@ -4,9 +4,16 @@
 
 #include "utils/StaticList.h"
 #include "importer/MovieImporter.h"
+#include "populators/UsersPopulator.h"
 
 void execute() {
+    cout << "[APP] Iniciando serviço..." << endl;
+
     MovieImporter::import("../dataset/movies.csv");
 
-    Movies::movies.print();
+    cout << "[APP] Realizando procedimentos para popular dados..." << endl;
+
+    UsersPopulator::populate(50);
+
+//    Movies::movies.print();
 }
