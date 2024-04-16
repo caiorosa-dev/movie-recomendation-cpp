@@ -30,6 +30,27 @@ std::ostream& operator<<(std::ostream& os, const User& user) {
 
 namespace Users {
     StaticList<User, 100> users;
+
+    switch(pressedKey){
+        case 72: /** cima */
+            if(IntefaceManager::canMove(row - 1, column)){
+                row--;
+            }
+            break;
+
+        case 80: /** baixo */
+            if(InterfaceManager::canMove(row + 1, column)){
+                row++;
+            }
+            break;
+
+        case 13: /** enter */
+            if(){
+
+            }
+            break;
+    }
 }
+
 
 #endif //VALIFLIX_USERS_H
