@@ -8,28 +8,28 @@
 #include <string>
 
 enum class InterfaceOptionType {
-    USUARIOS, /** LIGHT_BLUE */
-    NOVO_USUARIO, /** WHITE */
-    DELETAR_USUARIO, /** RED */
-    CREDITOS, /** CYAN */
-    SAIR,
+    USERS,
+    CREATE_USER,
+    DELETE_USER,
+    DEVS,
+    EXIT,
 };
 
 std::string getTextFromType(InterfaceOptionType type){
     switch (type) {
-        case InterfaceOptionType::USUARIOS: {
+        case InterfaceOptionType::USERS: {
             return "Usuarios";
         }
-        case InterfaceOptionType::NOVO_USUARIO: {
+        case InterfaceOptionType::CREATE_USER: {
             return "Cadastrar Novo Usuario";
         }
-        case InterfaceOptionType::DELETAR_USUARIO: {
+        case InterfaceOptionType::DELETE_USER: {
             return "Deletar Usuario";
         }
-        case InterfaceOptionType::CREDITOS: {
+        case InterfaceOptionType::DEVS: {
             return "Desenvolvedores";
         }
-        case InterfaceOptionType::SAIR: {
+        case InterfaceOptionType::EXIT: {
             return "Sair";
         }
     }
