@@ -2,8 +2,8 @@
 // Created by Jordan on 13/04/2024.
 //
 
-#ifndef VALIFLIX_STRINGINTERFACE_H
-#define VALIFLIX_STRINGINTERFACE_H
+#ifndef VALIFLIX_INTERFACEUTILS_H
+#define VALIFLIX_INTERFACEUTILS_H
 
 #include <iostream>
 #include <sstream>
@@ -53,4 +53,4 @@ string centerStringInScreen(string str, int size, bool withTrailingSpaces = true
 }
 
 
-#endif //VALIFLIX_STRINGINTERFACE_H
+#endif //VALIFLIX_INTERFACEUTILS_H
