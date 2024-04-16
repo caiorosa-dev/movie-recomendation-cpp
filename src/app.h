@@ -20,8 +20,6 @@ void execute() {
 
     Menu::renderInterfaceUsuario();
 
-    Menu::renderIntefaceDevs();
-
     Menu::renderInterfaceDeleteUser();
 
 }
