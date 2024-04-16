@@ -16,5 +16,5 @@ void execute() {
 
     UsersPopulator::populate(50);
 
-//    Movies::movies.print();
+    Menu::renderInterfaceInicial();
 }

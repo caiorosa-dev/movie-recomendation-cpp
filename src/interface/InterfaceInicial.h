@@ -7,11 +7,12 @@
 
 #include <iostream>
 #include "InterfaceOptionType.h"
-#include "InterfaceColor.h"
+#include "InterfaceOptionType.h"
+#include "StringInterface.h"
 
 using namespace std;
 
-namespace Menu{
+namespace Menu {
     int terminalRows, terminalColumns;
 
     int selectedOption = 0;
@@ -52,19 +53,14 @@ namespace Menu{
 
     //renderizar o menu de início do jogo
     void renderInterfaceInicial() {
-        cout << endl << endl;
-        InterfaceColor::set(Color::LIGTH_MAGENTA);
+        cout << endl;
         cout << centerStringInScreen(" __     __    _ _ _____ _ _      ", terminalColumns) <<endl;
         cout << centerStringInScreen(" \\ \\   / /_ _| (_)  ___| (_)_  __", terminalColumns) <<endl;
         cout << centerStringInScreen("  \\ \\ / / _` | | | |_  | | \\ \\/ /", terminalColumns) <<endl;
         cout << centerStringInScreen("   \\ V / (_| | | |  _| | | |>  < ", terminalColumns) <<endl;
         cout << centerStringInScreen("    \\_/ \\__,_|_|_|_|   |_|_/_/\\_\\", terminalColumns) <<endl;
-        //cout << centerStringInScreen("                                 ", terminalColumns) <<endl;
-        InterfaceColor::reset();
+        cout << centerStringInScreen("v1.0 - Caio | Jordan | Joshuah", terminalColumns) <<endl;
         cout << endl;
-
-
-
     }
 }
 
