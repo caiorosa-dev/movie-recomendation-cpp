@@ -38,13 +38,6 @@ void populateLastNames() {
 }
 
 namespace UsersPopulator {
-    struct TestUser {
-        std::string name;
-        StaticList<MovieGenre, 5> genres;
-        int age;
-        int rating;
-    };
-
     void populate(int amount = 100) {
         cout << "[UsersPopulator] Iniciando geração de usuários (quantidade: " << amount <<")..." << endl;
         populateNames();
@@ -62,8 +55,8 @@ namespace UsersPopulator {
             }
             user.favoriteGenres = genres;
 
-            // adicionar lógica posteriormente para gerar os filmes assistidos e etc do usuário.
-
+            user.watchedMovies.insertAtEnd({Movies::movies.getRandom(), rand() % 5});
+            user.watchList.insertAtEnd(Movies::movies.getRandom());
             Users::users.insertAtEnd(user);
         }
 
