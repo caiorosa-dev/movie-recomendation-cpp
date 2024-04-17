@@ -7,9 +7,9 @@
 
 #include <iostream>
 #include "../utils/InterfaceUtils.h"
-#include "../entities/Users.h"
-#include "../populators/UsersPopulator.h"
 #include "UserInterface.h"
+#include "../entities/MovieRecommender.h"
+
 
 using namespace std;
 
@@ -18,7 +18,7 @@ namespace Menu{
     void renderInterfaceDevs() {
         int option = 2;
         while(option != 0){
-            system("cls");
+            clearConsole();
 
             cout << endl << endl;
             cout << "  ____                                 _               _                     " <<endl;
@@ -46,7 +46,54 @@ namespace Menu{
         }
     }
 
+    void askForRecomendation() {
+        cout << "\tInforme o indice do usuário que você deseja gerar a recomendação: ";
+        int userIndex;
+        cin >> userIndex;
 
+        User user = Users::users.get(userIndex);
+
+        MovieRecommender::recommendMovies(user).print();
+
+        waitForUserEnter();
+    }
+
+    void renderMovieMenu() {
+        int option = 5;
+        while(option != 0){
+            clearConsole();
+
+            cout << endl << endl;
+            cout << "  _   _                      _           " <<endl;
+            cout << " | | | |___ _   _  __ _ _ __(_) ___  ___ " <<endl;
+            cout << " | | | / __| | | |/ _` | '__| |/ _ \\/ __|" <<endl;
+            cout << " | |_| \\__ \\ |_| | (_| | |  | | (_) \\__ \\" <<endl;
+            cout << "  \\___/|___/\\__,_|\\__,_|_|  |_|\\___/|___/" <<endl;
+            cout << endl;
+
+            cout << "\t1. Exibir Filmes" <<endl;
+            cout << "\t2. Recomendador" << endl;
+            cout << "\t3. Voltar para o Menu" << endl;
+            cout << "\tEscolha uma opcao: ";
+            cin >> option;
+            clearConsole();
+
+            switch (option) {
+                case 1:
+                    Movies::movies.print();
+                    waitForUserEnter();
+                    break;
+                case 2:
+                    askForRecomendation();
+                    break;
+                case 3:
+                    return;
+                default:
+                    cout << "\tOpcao invalida!" << endl;
+                    break;
+            }
+        }
+    }
 
     void renderMenu() {
         int option = 3;
@@ -74,6 +121,9 @@ namespace Menu{
             switch(option) {
                 case 1:
                     UserInterface::renderMenu();
+                    break;
+                case 2:
+                    renderMovieMenu();
                     break;
                 case 3:
                     renderInterfaceDevs();

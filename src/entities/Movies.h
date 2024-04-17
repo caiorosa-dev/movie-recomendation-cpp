@@ -17,18 +17,30 @@ struct Movie {
     std::string cast;
     StaticList<MovieGenre, 10> genres;
     int year = 0;
+
+    bool operator==(const Movie& other) const {
+        return title == other.title &&
+               cast == other.cast &&
+               year == other.year;
+    }
 };
 
 struct WatchedMovie {
     Movie movie;
     int rating = 0;
+
+    bool operator==(const WatchedMovie& other) const {
+        return movie == other.movie && rating == other.rating;
+    }
 };
 
+std::ostream& operator<<(std::ostream& os, const WatchedMovie& watchedMovie) {
+    os << watchedMovie.movie.title << " | Nota: " << watchedMovie.rating;
+    return os;
+}
+
 std::ostream& operator<<(std::ostream& os, const Movie& movie) {
-    os << "Titulo: " << movie.title << std::endl;
-    os << "Elenco: " << movie.cast << std::endl;
-    os << "Ano: " << movie.year << std::endl;
-    os << "--------------------------------" << std::endl;
+    os << movie.title;
     return os;
 }
 

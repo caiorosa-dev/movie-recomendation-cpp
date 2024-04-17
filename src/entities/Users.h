@@ -13,9 +13,14 @@
 struct User {
     std::string name;
     int age;
-    StaticList<Movie, 50> watchList;
+    StaticList<Movie, 20> watchList;
     StaticList<MovieGenre, 3> favoriteGenres;
-    StaticList<WatchedMovie, 20> watchedMovies;
+    StaticList<WatchedMovie, 50> watchedMovies;
+
+    bool operator==(const User& other) const {
+        return name == other.name &&
+               age == other.age;
+    }
 };
 
 std::ostream& operator<<(std::ostream& os, const User& user) {
