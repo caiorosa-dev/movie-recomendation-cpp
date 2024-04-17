@@ -206,16 +206,16 @@ public:
         int startIndex = (page - 1) * pageSize;
         int endIndex = startIndex + pageSize;
 
-        if (startIndex >= movieList.size()) {
+        if (startIndex >= list.getSize()) {
             std::cout << "Page not found." << std::endl;
             return;
         }
 
-        endIndex = std::min(endIndex, static_cast<int>(movieList.size()));
+        endIndex = std::min(endIndex, static_cast<int>(list.getSize()));
 
         std::cout << "Page " << page << ":" << std::endl;
         for (int i = startIndex; i < endIndex; ++i) {
-            std::cout << "Title: " << movieList[i].title << ", Year: " << movieList[i].year << std::endl;
+            std::cout << "Title: " << list[i].title << ", Year: " << list[i].year << std::endl;
         }
     }
 };
