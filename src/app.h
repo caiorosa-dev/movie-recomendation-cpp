@@ -5,7 +5,7 @@
 #include "utils/StaticList.h"
 #include "importer/MovieImporter.h"
 #include "populators/UsersPopulator.h"
-#include "interface/InterfaceInicial.h"
+#include "interface/HomeInterface.h"
 
 void execute() {
     cout << "[APP] Iniciando serviço..." << endl;
