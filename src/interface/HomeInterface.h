@@ -22,7 +22,7 @@ namespace Menu{
         cout << centerStringInScreen(" | | | |/ _ \\/ __|/ _ \\ '_ \\ \\ / / _ \\| \\ \\ / / _ \\/ _` |/ _ \\| '__/ _ \\/ __|", terminalColumns) <<endl;
         cout << centerStringInScreen(" | |_| |  __/\\__ \\  __/ | | \\ V / (_) | |\\ V /  __/ (_| | (_) | | |  __/\\__ \\", terminalColumns) <<endl;
         cout << centerStringInScreen(" |____/ \\___||___/\\___|_| |_|\\_/ \\___/|_| \\_/ \\___|\\__,_|\\___/|_|  \\___||___/", terminalColumns) <<endl;
-        //cout << centerStringInScreen("                                 ", terminalColumns) <<endl;
+        cout << centerStringInScreen("\tFeito por: Caio Rosa, Jordan Lippert & Joshuah Jackson                                 ", terminalColumns) <<endl;
         cout << endl;
     }
 
@@ -33,8 +33,8 @@ namespace Menu{
         cout << centerStringInScreen(" | | | / __| | | |/ _` | '__| |/ _ \\/ __|", terminalColumns) <<endl;
         cout << centerStringInScreen(" | |_| \\__ \\ |_| | (_| | |  | | (_) \\__ \\", terminalColumns) <<endl;
         cout << centerStringInScreen("  \\___/|___/\\__,_|\\__,_|_|  |_|\\___/|___/", terminalColumns) <<endl;
-        //cout << centerStringInScreen("                                 ", terminalColumns) <<endl;
         cout << endl;
+
     }
 
     void renderMenu() {
@@ -51,7 +51,7 @@ namespace Menu{
         int option = 5;
         while(option != 0) {
             cout << "\t1. Entrar" << endl;
-            cout << "\t2. Cadastrar" << endl;
+            cout << "\t2. Créditos" << endl;
             cout << "\t0. Sair" << endl;
             cout << "\tEscolha uma opção: ";
             cin >> option;
