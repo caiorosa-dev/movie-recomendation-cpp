@@ -116,6 +116,43 @@ public:
         return T();
     }
 
+    void sort(std::function<bool(const T&, const T&)> compare) {
+        quickSort(0, size - 1, compare);
+    }
+
+    void quickSort(int low, int high, std::function<bool(const T&, const T&)> compare) {
+        if (low < high) {
+            int partitionIndex = partition(low, high, compare);
+
+            quickSort(low, partitionIndex - 1, compare);
+            quickSort(partitionIndex + 1, high, compare);
+        }
+    }
+
+    int partition(int low, int high, std::function<bool(const T&, const T&)> compare) {
+        T pivot = array[high];
+        int i = low - 1;
+
+        for (int j = low; j <= high - 1; ++j) {
+            if (compare(array[j], pivot)) {
+                ++i;
+                swap(i, j);
+            }
+        }
+        swap(i + 1, high);
+        return (i + 1);
+    }
+
+    void swap(int i, int j) {
+        if (i >= 0 && i < size && j >= 0 && j < size) {
+            T temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        } else {
+            std::cerr << "Erro: Índices inválidos." << std::endl;
+        }
+    }
+
     /*
      * Método para obter o index de um elemento da lista.
      */
@@ -187,7 +224,7 @@ public:
         for (int i = 0; i < size; ++i) {
             bool isEnd = i == size - 1;
 
-            std::cout << array[i] << std::endl;
+            std::cout << i << ". " << array[i] << std::endl;
         }
         std::cout << std::endl;
     }

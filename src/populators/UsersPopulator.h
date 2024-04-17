@@ -9,7 +9,7 @@
 using namespace std;
 
 namespace UsersPopulator {
-    void populate(int amount = 100) {
+    void populate(int amount, int amountOfWatchList, int amountOfWatchedMovies) {
         cout << "[UsersPopulator] Iniciando geração de usuários (quantidade: " << amount <<")..." << endl;
 
         for (int i = 0; i < amount; ++i) {
@@ -19,15 +19,15 @@ namespace UsersPopulator {
             user.age = rand() % 50 + 18;
 
             StaticList<MovieGenre, 3> genres;
-            for (int j = 0; j < rand() % 2; ++j) {
-                genres.insertAtEnd(MovieGenre(rand() % 19));
+            for (int j = 0; j < rand() % 2 + 1; ++j) {
+                genres.insertAtEnd(MovieGenre(rand() % 23));
             }
             user.favoriteGenres = genres;
 
-            for(int j = 0; j < user.watchedMovies.getSize(); j++)
-                user.watchedMovies.insertAtEnd({Movies::movies.getRandom(), rand() % 5});
+            for(int j = 0; j < amountOfWatchedMovies; j++)
+                user.watchedMovies.insertAtEnd({Movies::movies.getRandom(), rand() % 4 + 1});
 
-            for(int k = 0; k < user.watchList.getSize(); k++)
+            for(int k = 0; k < amountOfWatchList; k++)
                 user.watchList.insertAtEnd(Movies::movies.getRandom());
 
             Users::users.insertAtEnd(user);

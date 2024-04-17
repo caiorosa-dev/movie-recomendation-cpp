@@ -15,10 +15,18 @@
 using namespace std;
 namespace UsersQuestioner {
     void askForPopulate() {
-        int populate;
+        int populateAmount;
+        int watchedAmount;
+        int watchListAmount;
         cout << "\tQuantos usuarios voce quer gerar (digite um número)? "<<endl;
-        cin >> populate;
-        UsersPopulator::populate(populate);
+        cin >> populateAmount;
+
+        cout << "\tQual a quantidade de filmes assistidos (digite um número)? "<<endl;
+        cin >> watchedAmount;
+
+        cout << "\tQual a quantidade de filmes a assistir (digite um número)? "<<endl;
+        cin >> watchListAmount;
+        UsersPopulator::populate(populateAmount, watchListAmount, watchedAmount);
         cout << endl << "\tUsuarios gerados com sucesso!"<<endl;
     }
 
