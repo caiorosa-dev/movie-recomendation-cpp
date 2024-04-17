@@ -175,6 +175,23 @@ public:
         }
         return os;
     }
+
+    void paginate(int pageSize, int page) const {
+        int startIndex = (page - 1) * pageSize;
+        int endIndex = startIndex + pageSize;
+
+        if (startIndex >= movieList.size()) {
+            std::cout << "Page not found." << std::endl;
+            return;
+        }
+
+        endIndex = std::min(endIndex, static_cast<int>(movieList.size()));
+
+        std::cout << "Page " << page << ":" << std::endl;
+        for (int i = startIndex; i < endIndex; ++i) {
+            std::cout << "Title: " << movieList[i].title << ", Year: " << movieList[i].year << std::endl;
+        }
+    }
 };
 
 #endif //VALIFLIX_STATICLIST_H
