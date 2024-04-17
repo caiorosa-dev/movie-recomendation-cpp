@@ -10,6 +10,7 @@
 #include "../utils/StaticList.h"
 #include "../entities/Movies.h"
 #include "../utils/StringUtils.h"
+#include "../utils/RandomNamesUtil.h"
 
 using namespace std;
 
@@ -38,7 +39,7 @@ namespace MovieImporter {
             }
 
             line++;
-            if (line < 1) continue;
+            if (line <= 1) continue;
 
             vector<string> movieData = StringUtils::splitString(currentLine, ',');
 
@@ -47,11 +48,30 @@ namespace MovieImporter {
             }
 
             string title = movieData[1];
+            if (title.starts_with('"')) {
+                title = title.substr(1, title.length() - 2);
+                continue;
+            }
             int year = StringUtils::extractIntFromString(movieData[1]);
 
-            string cast = "N/A";
+            string cast;
+            string stringGenres = movieData[2];
+            vector<string> splitedGenres = StringUtils::splitString(stringGenres, '|');
+
+            int sizeOfCast = rand() % 5;
+            for (int i = 0;i < sizeOfCast;i++) {
+                cast += getRandomName();
+
+                if (i + 1 != sizeOfCast) {
+                    cast += ", ";
+                }
+            }
 
             Movie newMovie = Movies::initMovie(title, cast, year);
+
+            for (const auto &item : splitedGenres) {
+                newMovie.genres.insertAtEnd(getGenreFromEnglishName(item));
+            }
 
             Movies::movies.insertAtEnd(newMovie);
         }

@@ -31,7 +31,10 @@ enum class MovieGenre {
     SCIENCE_FICTION,
     THRILLER,
     URBAN,
+    DOCUMENTARY,
     WESTERN,
+    IMAX,
+    FILM_NOIR,
     WAR
 };
 
@@ -55,12 +58,52 @@ std::map<MovieGenre, std::string> genreNamesInPortuguese = {
         {MovieGenre::SCIENCE_FICTION, "Ficção Científica"},
         {MovieGenre::THRILLER, "Suspense"},
         {MovieGenre::URBAN, "Urbano"},
+        {MovieGenre::DOCUMENTARY, "Documentário"},
+        {MovieGenre::WAR, "Guerra"},
+        {MovieGenre::FILM_NOIR, "Filme Noir"},
         {MovieGenre::WESTERN, "Faroeste"},
-        {MovieGenre::WAR, "Guerra"}
+        {MovieGenre::IMAX, "IMAX"}
+};
+
+std::map<MovieGenre, std::string> genreNamesInEnglish = {
+        {MovieGenre::ACTION, "Action"},
+        {MovieGenre::ANIMATION, "Animation"},
+        {MovieGenre::CHILDREN, "Children"},
+        {MovieGenre::ADVENTURE, "Adventure"},
+        {MovieGenre::COMEDY, "Comedy"},
+        {MovieGenre::CRIME, "Crime"},
+        {MovieGenre::MUSICAL, "Musical"},
+        {MovieGenre::DRAMA, "Drama"},
+        {MovieGenre::FANTASY, "Fantasy"},
+        {MovieGenre::HISTORICAL, "Historical"},
+        {MovieGenre::HORROR, "Horror"},
+        {MovieGenre::MYSTERY, "Mystery"},
+        {MovieGenre::PHILOSOPHICAL, "Philosophical"},
+        {MovieGenre::POLITICAL, "Political"},
+        {MovieGenre::ROMANCE, "Romance"},
+        {MovieGenre::SATIRE, "Satire"},
+        {MovieGenre::SCIENCE_FICTION, "Sci-Fi"},
+        {MovieGenre::THRILLER, "Thriller"},
+        {MovieGenre::URBAN, "Urban"},
+        {MovieGenre::DOCUMENTARY, "Documentary"},
+        {MovieGenre::WAR, "War"},
+        {MovieGenre::WESTERN, "Western"},
+        {MovieGenre::FILM_NOIR, "Film-Noir"},
+        {MovieGenre::IMAX, "IMAX"}
 };
 
 std::string getGenreName(MovieGenre genre) {
     return genreNamesInPortuguese[genre];
+}
+
+MovieGenre getGenreFromEnglishName(const std::string& name) {
+    for (const auto& pair : genreNamesInEnglish) {
+        if (pair.second == name) {
+            return pair.first;
+        }
+    }
+
+    throw std::invalid_argument("Gênero não encontrado: " + name);
 }
 
 #endif //VALIFLIX_MOVIEGENRE_H
