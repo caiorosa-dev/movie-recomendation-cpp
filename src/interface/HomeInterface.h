@@ -8,6 +8,7 @@
 #include <iostream>
 #include "../utils/InterfaceUtils.h"
 #include "../entities/Users.h"
+#include "../populators/UsersPopulator.h"
 
 using namespace std;
 
@@ -35,32 +36,42 @@ namespace Menu{
         cout << centerStringInScreen("  \\___/|___/\\__,_|\\__,_|_|  |_|\\___/|___/", terminalColumns) <<endl;
         cout << endl;
 
-        int option = 4;
+        int option = 5;
         while(option != 0){
             cout << "\t1. Exibir Usuários" <<endl;
-            cout << "\t2. Cadastrar Usuários" <<endl;
-            cout << "\t3. Deletar Usuários" <<endl;
-            cout << "\t4. Voltar por Menu" << endl;
+            cout << "\t2. Cadastrar Usuário" <<endl;
+            cout << "\t3. Gerar Usuário" <<endl;
+            cout << "\t4. Deletar Usuários" <<endl;
+            cout << "\t5. Voltar por Menu" << endl;
             cout << "\tEscolha uma opção: ";
             cin >> option;
 
-            if (option == 1){
-
-                break;
-            }
-            else if (option == 2){
-
-                break;
-            }
-            else if (option == 3){
-
-                break;
-            }
-            else if (option == 4){
-                return;
-            }
-            else{
-                cout << "\tOpção inválida!" << endl;
+            switch (option) {
+                case 1:
+                    Users::users.print();
+                    break;
+                case 2:
+                    if (option == 2){
+                        string name;
+                        int age;
+                        cout << "\tQual seu nome: " <<endl;
+                        cin >> name;
+                        cout << "\tQual sua idade: "<<endl;
+                        cin >> age;
+                        new User(name,age);
+                        break;
+                    }
+                case 3:
+                    int populate;
+                    cout << "\tQuantos usuários você quer gerar? "<<endl;
+                    cin >> populate;
+                    UsersPopulator::populate(populate);
+                    break;
+                case 4:
+                    return;
+                default:
+                    cout << "\tOpção inválida!" << endl;
+                    break;
             }
         }
     }
