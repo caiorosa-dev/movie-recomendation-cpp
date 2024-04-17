@@ -17,11 +17,12 @@ namespace UsersQuestioner {
     void askForUserDelete();
 
     inline void askForUser() {
+        int qtde;
         string response;
         cout << "Quantos usuarios voce deseja inserir manualmente: ";
-        cin >> quantidade;
+        cin >> qtde;
 
-        for(int i=0; i < quantidade;i++) {
+        for(int i=0; i < qtde;i++) {
             User user;
 
             cout << "Informe nome do usuario: ";
@@ -35,26 +36,21 @@ namespace UsersQuestioner {
             cout << "Selecione 3 gêneros desejados: ";
             cin >> response;
             StringUtils::splitString(response, ',');
-            // fazer paginacao do catalogo
-            cout << "Cátalogo de filmes: ";
+            cout << "===| Cátalogo de filmes: |===";
 
             int k = 1;
             string navigation;
             while(k) {
                 Movies::movies.paginate(10,k);
-                cout << "1 - Anterior\t 2 - Próximo";
+                cout << "Digite:\n Anterior\tPróximo";
                 cin >> navigation;
-                if(navigation == "Próximo") {
-                    k++;
-                    continue;
-                }
-                else if(navigation == "Anterior") {
-                    k--;
-                    continue;
-                }
+                if(navigation == "Próximo") k++;
+                else if(navigation == "Anterior") k--;
                 else {
                     cout << "Digite o número correspondente ao filme desejado: ";
                     cin >> k;
+                    // fazer uma funcao que pega o filme pela posicao, onde k é o valor da posicao
+                    // assim, ele vai selecionar um filme no catalogo por numero e vai ser adicionado em user o nome do filme
                 }
             }
         }
