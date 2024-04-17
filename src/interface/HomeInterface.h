@@ -22,7 +22,7 @@ namespace Menu{
         cout << centerStringInScreen(" | | | |/ _ \\/ __|/ _ \\ '_ \\ \\ / / _ \\| \\ \\ / / _ \\/ _` |/ _ \\| '__/ _ \\/ __|", terminalColumns) <<endl;
         cout << centerStringInScreen(" | |_| |  __/\\__ \\  __/ | | \\ V / (_) | |\\ V /  __/ (_| | (_) | | |  __/\\__ \\", terminalColumns) <<endl;
         cout << centerStringInScreen(" |____/ \\___||___/\\___|_| |_|\\_/ \\___/|_| \\_/ \\___|\\__,_|\\___/|_|  \\___||___/", terminalColumns) <<endl;
-        //cout << centerStringInScreen("                                 ", terminalColumns) <<endl;
+        cout << centerStringInScreen("\tFeito por: Caio Rosa, Jordan Lippert & Joshuah Jackson                                 ", terminalColumns) <<endl;
         cout << endl;
     }
 
@@ -33,8 +33,36 @@ namespace Menu{
         cout << centerStringInScreen(" | | | / __| | | |/ _` | '__| |/ _ \\/ __|", terminalColumns) <<endl;
         cout << centerStringInScreen(" | |_| \\__ \\ |_| | (_| | |  | | (_) \\__ \\", terminalColumns) <<endl;
         cout << centerStringInScreen("  \\___/|___/\\__,_|\\__,_|_|  |_|\\___/|___/", terminalColumns) <<endl;
-        //cout << centerStringInScreen("                                 ", terminalColumns) <<endl;
         cout << endl;
+
+        int option = 4;
+        while(option != 0){
+            cout << "\t1. Exibir Usuários" <<endl;
+            cout << "\t2. Cadastrar Usuários" <<endl;
+            cout << "\t3. Deletar Usuários" <<endl;
+            cout << "\t4. Voltar por Menu" << endl;
+            cout << "\tEscolha uma opção: ";
+            cin >> option;
+
+            if (option == 1){
+
+                break;
+            }
+            else if (option == 2){
+
+                break;
+            }
+            else if (option == 3){
+
+                break;
+            }
+            else if (option == 4){
+                return;
+            }
+            else{
+                cout << "\tOpção inválida!" << endl;
+            }
+        }
     }
 
     void renderMenu() {
@@ -48,10 +76,10 @@ namespace Menu{
         cout << endl;
         cout << "\tBem vindo ao FlixVali \n " << endl;
 
-        int option = 5;
+        int option = 3;
         while(option != 0) {
             cout << "\t1. Entrar" << endl;
-            cout << "\t2. Cadastrar" << endl;
+            cout << "\t2. Créditos" << endl;
             cout << "\t0. Sair" << endl;
             cout << "\tEscolha uma opção: ";
             cin >> option;

@@ -24,5 +24,4 @@ void execute() {
     Users::users.print();
 
     Menu::renderMenu();
-
 }
