@@ -23,6 +23,6 @@ void execute() {
 
     Users::users.print();
 
-    Menu::renderInterfaceInicial();
+    Menu::renderMenu();
 
 }

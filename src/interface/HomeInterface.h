@@ -37,7 +37,7 @@ namespace Menu{
         cout << endl;
     }
 
-    void renderInterfaceInicial() {
+    void renderMenu() {
         cout << endl << endl;
         cout << centerStringInScreen(" __     __    _ _ _____ _ _      ", terminalColumns) <<endl;
         cout << centerStringInScreen(" \\ \\   / /_ _| (_)  ___| (_)_  __", terminalColumns) <<endl;
@@ -48,24 +48,27 @@ namespace Menu{
         cout << endl;
         cout << "\tBem vindo ao FlixVali \n " << endl;
 
-        void options(){
-            int option;
-
-            cout << "Digite 0 para acessar os créditos \nDigite 1 para acessar a aba de Usuários \nDigite 2 para sair: ";
+        int option = 5;
+        while(option != 0) {
+            cout << "\t1. Entrar" << endl;
+            cout << "\t2. Cadastrar" << endl;
+            cout << "\t0. Sair" << endl;
+            cout << "\tEscolha uma opção: ";
             cin >> option;
 
-            if (option == 0){
-                renderInterfaceDevs();
-            }
-            else if (option == 1){
-                renderInterfaceUsuario();
-            }
-            else if (option == 2){
-                exit(0);
-            }
-            else(option < 0 || option > 2){
-                cout << "Número inválido! Digite novamente: ";
-                options();
+            switch(option) {
+                case 1:
+                    renderInterfaceUsuario();
+                    break;
+                case 2:
+                    renderInterfaceDevs();
+                    break;
+                case 0:
+                    cout << "\tAté mais!" << endl;
+                    break;
+                default:
+                    cout << "\tOpção inválida!" << endl;
+                    break;
             }
         }
     }
