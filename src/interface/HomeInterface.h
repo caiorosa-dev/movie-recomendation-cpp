@@ -68,6 +68,8 @@ namespace Menu{
                     UsersPopulator::populate(populate);
                     break;
                 case 4:
+                    cout << "Usuário: Joao bombinha DELETADO"<<endl;
+                case 5:
                     return;
                 default:
                     cout << "\tOpção inválida!" << endl;
