@@ -35,6 +35,34 @@ namespace Menu{
         cout << centerStringInScreen("  \\___/|___/\\__,_|\\__,_|_|  |_|\\___/|___/", terminalColumns) <<endl;
         cout << endl;
 
+        int option = 4;
+        while(option != 0){
+            cout << "\t1. Exibir Usuários" <<endl;
+            cout << "\t2. Cadastrar Usuários" <<endl;
+            cout << "\t3. Deletar Usuários" <<endl;
+            cout << "\t4. Voltar por Menu" << endl;
+            cout << "\tEscolha uma opção: ";
+            cin >> option;
+
+            if (option == 1){
+
+                break;
+            }
+            else if (option == 2){
+
+                break;
+            }
+            else if (option == 3){
+
+                break;
+            }
+            else if (option == 4){
+                return;
+            }
+            else{
+                cout << "\tOpção inválida!" << endl;
+            }
+        }
     }
 
     void renderMenu() {
@@ -48,7 +76,7 @@ namespace Menu{
         cout << endl;
         cout << "\tBem vindo ao FlixVali \n " << endl;
 
-        int option = 5;
+        int option = 3;
         while(option != 0) {
             cout << "\t1. Entrar" << endl;
             cout << "\t2. Créditos" << endl;
