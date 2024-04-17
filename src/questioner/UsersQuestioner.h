@@ -16,7 +16,7 @@ using namespace std;
 namespace UsersQuestioner {
     void askForPopulate() {
         int populate;
-        cout << "\tQuantos usuarios voce quer gerar? "<<endl;
+        cout << "\tQuantos usuarios voce quer gerar (digite um número)? "<<endl;
         cin >> populate;
         UsersPopulator::populate(populate);
         cout << endl << "\tUsuarios gerados com sucesso!"<<endl;
