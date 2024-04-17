@@ -138,7 +138,35 @@ namespace UsersQuestioner {
     }
 
     void askForUserDelete() {
+        {
+            int navigation = -1;
+            int page = 1;
+            while (navigation != 4) {
+                Users::users.paginate(10, page);
+                cout << "Digite:\n 1 - Anterior\t 2 - Próximo\t 3 - selecionar usuario\t 4 - avançar\n";
+                cin >> navigation;
 
+                switch (navigation) {
+                    case 1:
+                        page++;
+                        break;
+                    case 2:
+                        page--;
+                        break;
+                    case 3:
+                        int index;
+                        cout << "Digite o indice do usuario desejado para a exclusao";
+                        cin >> index;
+                        Users::users.removeFromPosition(index - 1);
+
+                        index = 0;
+                        break;
+                    default:
+                        cout << "Opcao invalida";
+                        break;
+                }
+            }
+        }
     }
 }
 
