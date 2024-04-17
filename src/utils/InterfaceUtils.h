@@ -29,6 +29,16 @@ string getNecessarySpacesToCenter(string str, int size) {
     return newString;
 }
 
+void clearConsole() {
+    system("cls");
+}
+
+void waitForUserEnter() {
+    cout << endl << "\tPressione ENTER para continuar...";
+    cin.ignore();
+    cin.get();
+}
+
 string generateSpaces(int spacesAmount) {
     string newString;
 

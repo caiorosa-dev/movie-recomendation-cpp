@@ -9,14 +9,20 @@
 #include <string>
 
 #include "../utils/StringUtils.h"
+#include "../populators/UsersPopulator.h"
 
 
 using namespace std;
 namespace UsersQuestioner {
-    void askForUser();
-    void askForUserDelete();
+    void askForPopulate() {
+        int populate;
+        cout << "\tQuantos usuarios voce quer gerar? "<<endl;
+        cin >> populate;
+        UsersPopulator::populate(populate);
+        cout << endl << "\tUsuarios gerados com sucesso!"<<endl;
+    }
 
-    inline void askForUser() {
+    void askForManualUser() {
         int qtde;
         string response;
         cout << "Quantos usuarios voce deseja inserir manualmente: ";
@@ -80,11 +86,9 @@ namespace UsersQuestioner {
         }
     }
 
-    inline void askForUserDelete() {
+    void askForUserDelete() {
 
     }
-
-
 }
 
 #endif //VALIFLIX_USERSQUESTIONER_H

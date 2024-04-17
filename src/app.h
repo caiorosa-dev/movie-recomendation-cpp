@@ -15,13 +15,5 @@ void execute() {
 
     MovieImporter::import("../dataset/movies.csv");
 
-    Movies::movies.print();
-
-    cout << "[APP] Realizando procedimentos para popular dados..." << endl;
-
-    UsersPopulator::populate(50);
-
-    Users::users.print();
-
     Menu::renderMenu();
 }
