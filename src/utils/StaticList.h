@@ -117,6 +117,32 @@ public:
     }
 
     /*
+     * Método para obter o index de um elemento da lista.
+     */
+    int getIndex(T value) {
+        for (int i = 0; i < size; ++i) {
+            if (array[i] == value) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    /*
+     * Método para verificar se a lista contém um elemento.
+     */
+    bool contains(T value) {
+        for (int i = 0; i < size; ++i) {
+            if (array[i] == value) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /*
      * Método para percorrer a lista e chamar um callback.
      */
     void forEach(std::function<void(const T&, int index)> callBack) {
