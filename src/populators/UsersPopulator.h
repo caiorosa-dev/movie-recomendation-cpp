@@ -55,8 +55,12 @@ namespace UsersPopulator {
             }
             user.favoriteGenres = genres;
 
-            user.watchedMovies.insertAtEnd({Movies::movies.getRandom(), rand() % 5});
-            user.watchList.insertAtEnd(Movies::movies.getRandom());
+            for(int j = 0; j < user.watchedMovies.getSize(); j++)
+                user.watchedMovies.insertAtEnd({Movies::movies.getRandom(), rand() % 5});
+
+            for(int k = 0; k < user.watchList.getSize(); k++)
+                user.watchList.insertAtEnd(Movies::movies.getRandom());
+
             Users::users.insertAtEnd(user);
         }
 

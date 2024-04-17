@@ -16,6 +16,8 @@ void execute() {
 
     UsersPopulator::populate(50);
 
+    Users::users.print();
+
     Menu::renderInterfaceInicial();
     Menu::renderInterfaceUsuario();
     Menu::renderInterfaceDeleteUser();
