@@ -39,4 +39,8 @@ void populateLastNames() {
     listLastNames.insertAtEnd("Carvalho");
 }
 
+std::string getRandomName() {
+    return listNames.getRandom() + " " + listLastNames.getRandom();
+}
+
 #endif //VALIFLIX_RANDOMNAMESUTIL_H

@@ -161,7 +161,7 @@ public:
         for (int i = 0; i < size; ++i) {
             bool isEnd = i == size - 1;
 
-            std::cout << array[i] << (isEnd ? "" : ", ");
+            std::cout << array[i] << std::endl;
         }
         std::cout << std::endl;
     }

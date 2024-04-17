@@ -10,10 +10,9 @@
 #include "../utils/StaticList.h"
 #include "../entities/Movies.h"
 #include "../utils/StringUtils.h"
+#include "../utils/RandomNamesUtil.h"
 
 using namespace std;
-
-
 
 /*
  * Importador de filmes
@@ -24,8 +23,6 @@ namespace MovieImporter {
      * @param fileName Nome do arquivo CSV
      */
     void import(const string& fileName) {
-        populateNames();
-        populateLastNames();
         std::cout << "[MovieImporter] Importando filmes..." << std::endl;
 
         ifstream file;
@@ -57,9 +54,19 @@ namespace MovieImporter {
             }
             int year = StringUtils::extractIntFromString(movieData[1]);
 
-            string cast = "N/A";
+            string cast;
             string stringGenres = movieData[2];
             vector<string> splitedGenres = StringUtils::splitString(stringGenres, '|');
+
+            int sizeOfCast = rand() % 5;
+            for (int i = 0;i < sizeOfCast;i++) {
+                cast += getRandomName();
+
+                if (i + 1 != sizeOfCast) {
+                    cast += ", ";
+                }
+            }
+
             Movie newMovie = Movies::initMovie(title, cast, year);
 
             for (const auto &item : splitedGenres) {

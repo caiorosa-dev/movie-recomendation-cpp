@@ -10,7 +10,12 @@
 void execute() {
     cout << "[APP] Iniciando serviço..." << endl;
 
+    populateNames();
+    populateLastNames();
+
     MovieImporter::import("../dataset/movies.csv");
+
+    Movies::movies.print();
 
     cout << "[APP] Realizando procedimentos para popular dados..." << endl;
 
