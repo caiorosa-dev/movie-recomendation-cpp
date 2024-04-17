@@ -46,50 +46,94 @@ namespace UsersQuestioner {
              cout << "Selecione 3 gêneros desejados dividindo por virgula (Ex: 1,5,2): " ;
              cin >> response;
              StringUtils::splitString(response, ',');
-             cout << "===| Filmes para assistir mais tarde: |===";
-             cout << "Selecione:";
+             cout << "=========| Assistir Mais Tarde: |=========";
 
              int page = 1;
-             int navigation;
-             while(navigation != 0) {
-                 Movies::movies.paginate(10, page);
-                 cout << "Digite:\n Anterior\tPróximo\n (Digite Avançar para prosseguir)";
+             int navigation = -1;
+            while(navigation != 4) {
+                Movies::movies.paginate(10,page);
+                cout << "Digite:\n 1 - Anterior\t 2 - Próximo\t 3 - selecionar filme\t 4 - avançar\n";
+                cin >> navigation;
+                switch (navigation) {
+                    case 1:
+                        page++;
+                        break;
+                    case 2:
+                        page--;
+                        break;
+                    case 3:
+                        cout << "Digite o número correspondente ao filme desejado: ";
+                        int index;
+                        cin >> index;
+                        user.watchList.insertAtEnd(Movies::movies.get(index - 1));
+                        index = 0;
+                        break;
+                    default:
+                        cout << "Opcao invalida";
+                        break;
+                }
+            }
+             cout << "=========| Filmes Favoritos: |=========\n\tSelecione:";
 
+            navigation = -1;
+            page = 1;
+             while(navigation != 4) {
+                 Movies::movies.paginate(10,page);
+                 cout << "Digite:\n 1 - Anterior\t 2 - Próximo\t 3 - selecionar filme\t 4 - avançar\n";
                  cin >> navigation;
-
-                 if(navigation == 3) page++;
-                 else if(navigation == 1) page--;
-                 else if(navigation == 2) break;
-
-                 else {
-                     cout << "Digite o número correspondente ao filme desejado: ";
-                     int index = 0;
-                     cin >> index;
-                     // fazer uma funcao que pega o filme pela posicao, onde k é o valor da posicao
-                     // assim, ele vai selecionar um filme no catalogo por numero e vai ser adicionado em user o nome do filme
-
-                     // insercao: digite um filme e qnd digitado armazena em uma lista e volta para a pagina 1
+                 cin.ignore();
+                 switch (navigation) {
+                     case 1:
+                         page++;
+                         break;
+                     case 2:
+                         page--;
+                         break;
+                     case 3:
+                         cout << "Digite o número correspondente ao filme desejado: ";
+                         int index;
+                         cin >> index;
+                         user.watchList.insertAtEnd(Movies::movies.get(index - 1));
+                         index = 0;
+                         break;
+                     default:
+                         cout << "Opcao invalida";
+                         break;
                  }
              }
-             cout << "===| Filmes Favoritos: |===";
-             cout << "Selecione:";
+            cout << "=========| Filmes Assistidos: |=========\n\tSelecione:";
 
-//             int k = 1;
-//             string navigation;
-//             while(k) {
-//                 Movies::movies.paginate(10,k);
-//                 cout << "Digite:\n Anterior\tPróximo\n (Digite Avançar para prosseguir)";
-//                 cin >> navigation;
-//                 if(navigation == "Próximo") k++;
-//                 else if(navigation == "Anterior") k--;
-//                 else if(navigation == "prosseguir") break;
-//                 else {
-//                     cout << "Digite o número correspondente ao filme desejado: ";
-//                     cin >> k;
-//                     // fazer uma funcao que pega o filme pela posicao, onde k é o valor da posicao
-//                     // assim, ele vai selecionar um filme no catalogo por numero e vai ser adicionado em user o nome do filme
-//                 }
-//             }
+            navigation = -1;
+            page = 1;
+            while(navigation != 4) {
+                Movies::movies.paginate(10,page);
+                cout << "Digite:\n 1 - Anterior\t 2 - Próximo\t 3 - selecionar filme\t 4 - avançar\n";
+                cin >> navigation;
+                cin.ignore();
+                switch (navigation) {
+                    case 1:
+                        page++;
+                        break;
+                    case 2:
+                        page--;
+                        break;
+                    case 3:
+                        cout << "Digite o número correspondente ao filme desejado: ";
+                        int index, rating;
+                        cin >> index;
+                        do {
+                            cout << "Avaliacao dada a este filme: ";
+                            cin >> rating;
+                        } while(rating < 0 || rating > 6);
+
+                        user.watchedMovies.insertAtEnd({Movies::movies.get(index - 1), rating});
+                        index = 0;
+                        break;
+                    default:
+                        cout << "Opcao invalida";
+                        break;
+                }
+            }
         }
     }
 

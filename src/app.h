@@ -14,6 +14,5 @@ void execute() {
     populateLastNames();
 
     MovieImporter::import("../dataset/movies.csv");
-
     Menu::renderMenu();
 }
