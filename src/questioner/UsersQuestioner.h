@@ -42,12 +42,12 @@ namespace UsersQuestioner {
 
             int k = 1;
             string navigation;
-            while(k) {
+            while(navigation != "prosseguir") {
                 Movies::movies.paginate(10,k);
                 cout << "Digite:\n Anterior\tPróximo\n (Digite Avançar para prosseguir)";
                 cin >> navigation;
-                if(navigation == "Próximo") k++;
-                else if(navigation == "Anterior") k--;
+                if(navigation == "próximo") k++;
+                else if(navigation == "anterior") k--;
                 else if(navigation == "prosseguir") break;
                 else {
                     cout << "Digite o número correspondente ao filme desejado: ";
