@@ -49,18 +49,22 @@ namespace UsersQuestioner {
              cout << "===| Filmes para assistir mais tarde: |===";
              cout << "Selecione:";
 
-             int k = 1;
-             string navigation;
-             while(navigation != "prosseguir") {
-//                 Movies::movies.paginate(10,k);
+             int page = 1;
+             int navigation;
+             while(navigation != 0) {
+                 Movies::movies.paginate(10, page);
                  cout << "Digite:\n Anterior\tPróximo\n (Digite Avançar para prosseguir)";
+
                  cin >> navigation;
-                 if(navigation == "próximo") k++;
-                 else if(navigation == "anterior") k--;
-                 else if(navigation == "prosseguir") break;
+
+                 if(navigation == 3) page++;
+                 else if(navigation == 1) page--;
+                 else if(navigation == 2) break;
+
                  else {
                      cout << "Digite o número correspondente ao filme desejado: ";
-                     cin >> k;
+                     int index = 0;
+                     cin >> index;
                      // fazer uma funcao que pega o filme pela posicao, onde k é o valor da posicao
                      // assim, ele vai selecionar um filme no catalogo por numero e vai ser adicionado em user o nome do filme
 

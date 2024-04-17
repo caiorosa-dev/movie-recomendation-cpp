@@ -202,7 +202,7 @@ public:
         return os;
     }
 
-     void paginate(int pageSize, int page) const {
+    void paginate(int pageSize, int page) {
          int startIndex = (page - 1) * pageSize;
          int endIndex = startIndex + pageSize;
 
@@ -215,7 +215,7 @@ public:
 
          std::cout << "Página " << page << ":" << std::endl;
          for (int i = startIndex; i < endIndex; ++i) {
-             array[i].print();
+             std::cout << array[i] << std::endl;
          }
      }
 };

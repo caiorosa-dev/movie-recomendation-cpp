@@ -11,8 +11,6 @@ using namespace std;
 namespace UsersPopulator {
     void populate(int amount = 100) {
         cout << "[UsersPopulator] Iniciando geração de usuários (quantidade: " << amount <<")..." << endl;
-        populateNames();
-        populateLastNames();
 
         for (int i = 0; i < amount; ++i) {
             User user;
