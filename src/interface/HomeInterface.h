@@ -25,6 +25,25 @@ namespace Menu{
         cout << centerStringInScreen(" |____/ \\___||___/\\___|_| |_|\\_/ \\___/|_| \\_/ \\___|\\__,_|\\___/|_|  \\___||___/", terminalColumns) <<endl;
         cout << centerStringInScreen("\tFeito por: Caio Rosa, Jordan Lippert & Joshuah Jackson                                 ", terminalColumns) <<endl;
         cout << endl;
+
+        int option = 2;
+        while(option != 0){
+            cout << "\t1. Voltar para o Menu"<<endl;
+            cout << "\t2. Sair"<<endl;
+            cout << "\tEscolha uma opcao: ";
+            cin >> option;
+
+            switch (option) {
+                case 1:
+                    return;
+                case 2:
+                    cout << "\tAte mais!" << endl;
+                    break;
+                default:
+                    cout << "Opcao invalida"<<endl;
+            }
+
+        }
     }
 
     void renderInterfaceUsuario() {
@@ -38,12 +57,12 @@ namespace Menu{
 
         int option = 5;
         while(option != 0){
-            cout << "\t1. Exibir Usuários" <<endl;
-            cout << "\t2. Cadastrar Usuário" <<endl;
-            cout << "\t3. Gerar Usuário" <<endl;
-            cout << "\t4. Deletar Usuários" <<endl;
-            cout << "\t5. Voltar por Menu" << endl;
-            cout << "\tEscolha uma opção: ";
+            cout << "\t1. Exibir Usuarios" <<endl;
+            cout << "\t2. Cadastrar Usuario" <<endl;
+            cout << "\t3. Gerar Usuario" <<endl;
+            cout << "\t4. Deletar Usuarios" <<endl;
+            cout << "\t5. Voltar para o Menu" << endl;
+            cout << "\tEscolha uma opcao: ";
             cin >> option;
 
             switch (option) {
@@ -63,16 +82,16 @@ namespace Menu{
                     }
                 case 3:
                     int populate;
-                    cout << "\tQuantos usuários você quer gerar? "<<endl;
+                    cout << "\tQuantos usuarios voce quer gerar? "<<endl;
                     cin >> populate;
                     UsersPopulator::populate(populate);
                     break;
                 case 4:
-                    cout << "Usuário: Joao bombinha DELETADO"<<endl;
+                    cout << "Usuario: Joao bombinha DELETADO"<<endl;
                 case 5:
                     return;
                 default:
-                    cout << "\tOpção inválida!" << endl;
+                    cout << "\tOpcao invalida!" << endl;
                     break;
             }
         }
@@ -92,9 +111,9 @@ namespace Menu{
         int option = 3;
         while(option != 0) {
             cout << "\t1. Entrar" << endl;
-            cout << "\t2. Créditos" << endl;
+            cout << "\t2. Creditos" << endl;
             cout << "\t0. Sair" << endl;
-            cout << "\tEscolha uma opção: ";
+            cout << "\tEscolha uma opcao: ";
             cin >> option;
 
             switch(option) {
@@ -105,10 +124,10 @@ namespace Menu{
                     renderInterfaceDevs();
                     break;
                 case 0:
-                    cout << "\tAté mais!" << endl;
+                    cout << "\tAte mais!" << endl;
                     break;
                 default:
-                    cout << "\tOpção inválida!" << endl;
+                    cout << "\tOpcao invalida!" << endl;
                     break;
             }
         }
