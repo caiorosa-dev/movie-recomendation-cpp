@@ -45,29 +45,31 @@ namespace UsersQuestioner {
             cout << "Informe idade do usuario: ";
             cin >> user.age;
 
-             cout << endl << "Gêneros Disponiveis:" << endl;
+             cout << endl << "Generos Disponiveis:" << endl;
              for(int j=0; j < 23;j++) {
                  MovieGenre currentGenre = MovieGenre(j);
 
                  cout << "\t" << j + 1 << ". " << getGenreName(currentGenre) << " " << endl;
              };
-             cout << "Selecione 3 gêneros desejados dividindo por virgula (Ex: 1,5,2): " ;
+             cout << "Selecione 3 generos desejados dividindo por virgula (Ex: 1,5,2): \n" ;
              cin >> response;
              StringUtils::splitString(response, ',');
-             cout << "=========| Assistir Mais Tarde: |=========";
 
              int page = 1;
              int navigation = -1;
-            while(navigation != 4) {
+             while(navigation != 4) {
+                system("cls");
+                cout << endl << "=========| Assistir Mais Tarde |=========";
+
                 Movies::movies.paginate(10,page);
                 cout << "Digite:\n 1 - Anterior\t 2 - Próximo\t 3 - selecionar filme\t 4 - avançar\n";
                 cin >> navigation;
                 switch (navigation) {
                     case 1:
-                        page++;
+                        page--;
                         break;
                     case 2:
-                        page--;
+                        page++;
                         break;
                     case 3:
                         cout << "Digite o número correspondente ao filme desejado: ";
@@ -75,27 +77,32 @@ namespace UsersQuestioner {
                         cin >> index;
                         user.watchList.insertAtEnd(Movies::movies.get(index - 1));
                         index = 0;
+                        page = 1;
                         break;
                     default:
                         cout << "Opcao invalida";
                         break;
                 }
             }
-             cout << "=========| Filmes Favoritos: |=========\n\tSelecione:";
 
             navigation = -1;
             page = 1;
              while(navigation != 4) {
+                 system("cls");
+                 cout << "=========| Filmes Favoritos |=========\n\tSelecione:\n";
+
                  Movies::movies.paginate(10,page);
                  cout << "Digite:\n 1 - Anterior\t 2 - Próximo\t 3 - selecionar filme\t 4 - avançar\n";
+
                  cin >> navigation;
                  cin.ignore();
+
                  switch (navigation) {
                      case 1:
-                         page++;
+                         page--;
                          break;
                      case 2:
-                         page--;
+                         page++;
                          break;
                      case 3:
                          cout << "Digite o número correspondente ao filme desejado: ";
@@ -109,21 +116,23 @@ namespace UsersQuestioner {
                          break;
                  }
              }
-            cout << "=========| Filmes Assistidos: |=========\n\tSelecione:";
 
             navigation = -1;
             page = 1;
             while(navigation != 4) {
+                system("cls");
+                cout << "=========| Filmes Assistidos: |=========\n\tSelecione:";
+
                 Movies::movies.paginate(10,page);
                 cout << "Digite:\n 1 - Anterior\t 2 - Próximo\t 3 - selecionar filme\t 4 - avançar\n";
                 cin >> navigation;
                 cin.ignore();
                 switch (navigation) {
                     case 1:
-                        page++;
+                        page--;
                         break;
                     case 2:
-                        page--;
+                        page++;
                         break;
                     case 3:
                         cout << "Digite o número correspondente ao filme desejado: ";
@@ -142,6 +151,8 @@ namespace UsersQuestioner {
                         break;
                 }
             }
+
+            Users::users.insertAtEnd(user);
         }
     }
 

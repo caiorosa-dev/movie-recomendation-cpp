@@ -48,13 +48,15 @@ namespace UserInterface {
                     break;
                 case 2:
                     UsersQuestioner::askForManualUser();
+                    waitForUserEnter();
                     break;
                 case 3:
                     UsersQuestioner::askForPopulate();
                     waitForUserEnter();
                     break;
                 case 4:
-                    cout << "Usuario: Joao bombinha DELETADO"<<endl;
+                    UsersQuestioner::askForUserDelete();
+                    waitForUserEnter();
                 case 5:
                     return;
                 default:

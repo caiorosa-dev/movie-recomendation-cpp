@@ -243,16 +243,17 @@ public:
          int startIndex = (page - 1) * pageSize;
          int endIndex = startIndex + pageSize;
 
+        if (startIndex < 0 ) startIndex = 0;
+        if (endIndex <= 0 ) endIndex = pageSize;
+
          if (startIndex >= size) {
              std::cout << "Página não encontrada." << std::endl;
              return;
          }
 
-         endIndex = std::min(endIndex, static_cast<int>(pageSize));
-
-         std::cout << "Página " << page << ":" << std::endl;
+         std::cout << std::endl << "Pagina " << page << ":" << std::endl;
          for (int i = startIndex; i < endIndex; ++i) {
-             std::cout << array[i] << std::endl;
+             std::cout << "\t " << i + startIndex + 1 << ". " << array[i] << std::endl;
          }
      }
 };
